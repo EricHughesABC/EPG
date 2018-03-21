@@ -5,5 +5,5 @@ This set of python 3.6 code is dervived from Brian Hargreaves EPG code<sup>1</su
 
 ---
 
-    1 http://web.stanford.edu/~bah/software/epg/
-    2 http://www.swig.org/
+    1. http://web.stanford.edu/~bah/software/epg
+    2. http://swig.org/
