@@ -7,11 +7,11 @@ This set of python 3.6 code is dervived from Brian Hargreaves EPG code<sup>1</su
 
 The python files are created using the command 
 
-python setup.py build
+`python setup.py build`
 
-and if no errors have occured then to install
+and if no errors have occured, then to install
 
-python setup.py install
+`python setup.py install`
 
 
 ---
