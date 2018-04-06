@@ -168,14 +168,15 @@ void print_double_matrix(double *mmm, int nrows, int ncols)
 }
 
 
-void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T)
+void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo)
 {
 	// signal : final calculated EPG signal, Nechos in length
 	// Nechos : number of echos to calculate
 	// rf_180 : rf pulse value for cpmg given in degrees
-	// T1 : value for T1 relaxation time given in ms
-	// T2 : value for T2 relaxation time given in ms
-	// T  : value for CPMG echo spacing given in ms
+	// rf_90  : rf pulse value for initial excitation given in degrees
+	// T1     : value for T1 relaxation time given in ms
+	// T2     : value for T2 relaxation time given in ms
+	// Techo  : value for CPMG echo spacing given in ms
 
 	const double PI = 3.1415926535897932384626433832795;
 
@@ -191,9 +192,9 @@ void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1
 	// Initialize diagonal of relaxation matrix
 	// ****************************************
 
-	ee[0] = exp(-T /2.0/ T2);
-	ee[4] = exp(-T /2.0/ T2);
-	ee[8] = exp(-T /2.0/ T1);
+	ee[0] = exp(-Techo /2.0/ T2);
+	ee[4] = exp(-Techo /2.0/ T2);
+	ee[8] = exp(-Techo /2.0/ T1);
 
 	// ********************************
 	// Set Z magnetization to 1.0 +0.0j
@@ -257,14 +258,16 @@ void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1
 
 
 
-void cpmg_epg_b1(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T, double B1scale)
+void cpmg_epg_b1(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo, double B1scale)
 {
 	// signal : final calculated EPG signal, Nechos in length
 	// Nechos : number of echos to calculate
 	// rf_180 : rf pulse value for cpmg given in degrees
-	// T1 : value for T1 relaxation time given in ms
-	// T2 : value for T2 relaxation time given in ms
-	// T  : value for CPMG echo spacing given in ms
+	// rf_90  : rf pulse value for initial excitation given in degrees
+	// T1     : value for T1 relaxation time given in ms
+	// T2     : value for T2 relaxation time given in ms
+	// Techo  : value for CPMG echo spacing given in ms
+	// B1scale: scaling parameter for  B1 field, typically set to 1
 
 	const double PI = 3.1415926535897932384626433832795;
 
@@ -280,9 +283,9 @@ void cpmg_epg_b1(double *signal, int Nechos, double rf_90, double rf_180, double
 	// Initialize diagonal of relaxation matrix
 	// ****************************************
 
-	ee[0] = exp(-T /2.0/ T2);
-	ee[4] = exp(-T /2.0/ T2);
-	ee[8] = exp(-T /2.0/ T1);
+	ee[0] = exp(-Techo /2.0/ T2);
+	ee[4] = exp(-Techo /2.0/ T2);
+	ee[8] = exp(-Techo /2.0/ T1);
 
 	// ********************************
 	// Set Z magnetization to 1.0 +0.0j

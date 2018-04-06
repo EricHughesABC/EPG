@@ -11,8 +11,8 @@ std::complex<double> *rf_pulse_matrix(double alpha, double phi);
 int mult_pulse_FpFmZ(std::complex<double> *rfpulse, std::complex<double> *FpFmZ, int num_cols);
 int mult_ee_FpFmZ(double *ee, std::complex<double> *FpFmZ, int num_cols);
 void epg_grad(std::complex<double> *FpFmZ, int num_cols);
-void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T);
-void cpmg_epg_b1(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T, double B1scale);
+void cpmg_epg(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo);
+void cpmg_epg_b1(double *signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo, double B1scale);
 
 
 

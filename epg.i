@@ -14,11 +14,11 @@ import_array();
 
 //%apply ( double* ARGOUT_ARRAY1, int DIM1 ){(double* signal, int Nechos)};
 %apply ( double* INPLACE_ARRAY1, int DIM1 ){(double* signal, int Nechos)};
-void cpmg_epg(double* signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T);
+void cpmg_epg(double* signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo);
 
 //%apply ( double* ARGOUT_ARRAY1, int DIM1 ){(double* signal, int Nechos)};
 %apply ( double* INPLACE_ARRAY1, int DIM1 ){(double* signal, int Nechos)};
-void cpmg_epg_b1(double* signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double T, double B1scale);
+void cpmg_epg_b1(double* signal, int Nechos, double rf_90, double rf_180, double T1, double T2, double Techo, double B1scale);
 
 
 
