@@ -4,7 +4,7 @@ from numpy import pi
 
 from matplotlib import pyplot as plt
 import epg
-from epg import cpmg_epg
+from epg import cpmg_epg, cpmg_epg_b1
 import timeit
 
 def  epg_grad(FpFmZ, noadd=0):
@@ -130,21 +130,20 @@ if __name__ == "__main__":
     #xxx = np.arange(1,18)*10.0
     yyy = np.zeros(17, dtype=np.float64)
 
-    ttt_c = timeit.timeit('cpmg_epg( yyy, 60.0, 120.0, 3000.0, 50.0, 10.0 )', setup="from __main__ import cpmg_epg, yyy, pi", number=10000)
-    print(ttt_c)
-    ttt_c = timeit.timeit('cpmg_epg( yyy,  60.0, 120.0, 3000.0, 50.0, 10.0 )', setup="from __main__ import cpmg_epg, yyy, pi", number=10000)
-    print(ttt_c)
+    ttt_c = timeit.timeit('cpmg_epg_b1( yyy, 60.0, 120.0, 3000.0, 50.0, 10.0, 1.0 )', setup="from __main__ import cpmg_epg_b1, yyy, pi", number=10000)
+    ttt_c = timeit.timeit('cpmg_epg_b1( yyy,  60.0, 120.0, 3000.0, 50.0, 10.0, 1.0 )', setup="from __main__ import cpmg_epg_b1, yyy, pi", number=10000)
+    print("Time to execute cpmg_epg_b1 C++ function 10000 times: {:5.2f} s".format( ttt_c))
 
     ttt_py = timeit.timeit('cpmg_epg_py( Nechos=17, rf_180=120.0, T1=3000.0, T2=50.0, Techo=10.0 )', setup="from __main__ import cpmg_epg_py", number=10000)
-    print(ttt_py)
-    print(ttt_py/ttt_c)
+    print("Time to execute cpmg_ep python function 10000 times: {:5.2f} s".format( ttt_py))
+
+    print("Ratio of Python to C++ {:5.2f}".format(ttt_py/ttt_c))
     epg.cpmg_epg( yyy, 60.0, 120.0, 3000.0, 50.0, 10.0 )
 
     yyy_py = cpmg_epg_py( Nechos=17, rf_180=120.0, T1=3000.0, T2=50.0, Techo=10.0 )
 
-    print(yyy)
 
-
+    print(help(cpmg_epg_b1))
 
     plt.plot(xxx, yyy, 'o-', label='c')
     plt.plot(xxx, yyy_py, label ='py')
