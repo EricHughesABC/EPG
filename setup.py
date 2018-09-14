@@ -29,7 +29,7 @@ if __name__ == "__main__":
     				   include_dirs=[numpy_include1, numpy_include2, ],
     				    extra_compile_args = [ "/GS-",  "/Zc:inline", "/fp:fast", ],
     				   )
-    elif "linux2" == sys.platform:
+    elif "linux" == sys.platform:
 
     	epg_module = Extension('_epg',
     				   sources=['epg.i',  'epg_cpmg.cpp',],
