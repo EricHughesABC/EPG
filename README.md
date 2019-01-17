@@ -19,7 +19,11 @@ There is a simple test program in the examples directory that compares the C EPG
 
 ```python run_epg.py```
 
-This program plots an T2 epg curve and difference in speed between the C code and Python
+This program plots a T2 epg curve and difference in speed between the C code and Python
+
+There is also a jupyter notebook in the examples  direcory that does the same thing and is called
+
+``EPG_C_Python_comparison.ipynb````
 
 ---
 
