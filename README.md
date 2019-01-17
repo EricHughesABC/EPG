@@ -23,7 +23,7 @@ This program plots a T2 epg curve and difference in speed between the C code and
 
 There is also a jupyter notebook in the examples  direcory that does the same thing and is called
 
-``EPG_C_Python_comparison.ipynb````
+```EPG_C_Python_comparison.ipynb```
 
 ---
 
