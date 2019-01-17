@@ -13,6 +13,13 @@ and if no errors have occured, then to install
 
 ```python setup.py install```
 
+## Running example
+
+There is a simple test program in the examples directory that compares the C EPG code to python
+
+'''python run_epg.py'''
+
+This program plots an T2 epg curve and difference in speed between the C code and Python
 
 ---
 
